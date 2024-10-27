@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _4a.Vowels_and_Consonants
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 4a. Vowels and Consonants
+
+            Console.WriteLine("Enter a sentence:");
+            string userInput = Console.ReadLine();
+
+            int vowels = 0;
+
+            int consonants = 0;
+
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                if (userInput[i] == 'a' || userInput[i] == 'e' || userInput[i] == 'i' || userInput[i] == 'o' || userInput[i] == 'u' || userInput[i] == 'A' || userInput[i] == 'E' || userInput[i] == 'I' || userInput[i] == 'O' || userInput[i] == 'U')
+                {
+                    vowels++;
+                }
+                else if ((userInput[i] >= 'a' && userInput[i] <= 'z') || (userInput[i] >= 'A' && userInput[i] <= 'Z'))
+                {
+                    consonants++;
+                }
+            }
+            Console.WriteLine($"\nThere were " + vowels + " vowels in the sentence.");
+            Console.WriteLine($"There were " + consonants + " consonants in the sentence.");
+            Console.ReadKey();
+
+        }
+    }
+}

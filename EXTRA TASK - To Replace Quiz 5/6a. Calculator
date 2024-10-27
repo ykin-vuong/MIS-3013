@@ -1,0 +1,126 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace P6_Calculator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string userinput, answer;
+            double result = 0;
+            bool usePreviousResult = false;
+
+            Console.WriteLine("Welcome to the Calculator Program!");
+            
+
+            DeveloperInfo("Ykin Vuong", "MIS 3013", "10/23/2024");
+
+            do
+            {
+                if (!usePreviousResult)
+                {
+                    Console.WriteLine("\nWhat math method would you like to do? (addition, subtraction, multiplication, division)");
+                    userinput = Console.ReadLine().ToLower();
+
+                    Console.WriteLine("What is your first number?");
+                    double v1 = Convert.ToDouble(Console.ReadLine());
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+
+                    result = PerformCalculation(userinput, v1, v2);
+                }
+                else
+                {
+                    Console.WriteLine("\nWhat math method would you like to do? (addition, subtraction, multiplication, division)");
+                    userinput = Console.ReadLine().ToLower();
+
+                    Console.WriteLine("What is your second number?");
+                    double v2 = Convert.ToDouble(Console.ReadLine());
+
+                    result = PerformCalculation(userinput, result, v2);
+                }
+
+                Console.WriteLine($"Result: {result}");
+
+                Console.WriteLine("\nWould you like to perform a new calculation, use the result of the previous calculation, or stop? (new/use/stop)");
+                answer = Console.ReadLine().ToLower();
+
+                if (answer[0] == 'n')
+                {
+                    usePreviousResult = false;
+                }
+                else if (answer[0] == 'u')
+                {
+                    usePreviousResult = true;
+                }
+                else if (answer[0] == 's')
+                {
+                    Console.WriteLine("Thank you for using the Calculator Program!");
+                    break;
+                }
+
+            } while (true);
+
+            Console.ReadKey();
+        }
+
+
+
+        static double PerformCalculation(string userinput, double v1, double v2)
+        {
+            if (userinput[0] == 'a')
+            {
+                return Add(v1, v2);
+            }
+            else if (userinput[0] == 's')
+            {
+                return Subtract(v1, v2);
+            }
+            else if (userinput[0] == 'm')
+            {
+                return Multiply(v1, v2);
+            }
+            else if (userinput[0] == 'd')
+            {
+                return Divide(v1, v2);
+            }
+            else
+            {
+                Console.WriteLine("Invalid operation");
+            }
+            
+            return PerformCalculation(userinput, v1, v2);
+
+        }
+        static double Add(double v1, double v2)
+        {
+            return v1 + v2;
+        }
+
+        static double Subtract(double v1, double v2)
+        {
+            return v1 - v2;
+        }
+
+        static double Multiply(double v1, double v2)
+        {
+            return v1 * v2;
+        }
+
+        static double Divide(double v1, double v2)
+        {
+            return v1 / v2;
+        }
+
+        static void DeveloperInfo(string developerName, string className, string dateOfWriting)
+        {
+            Console.WriteLine($">> Note: {developerName} wrote this program for" +
+                $" {className} on {dateOfWriting}\n");
+
+        }
+    }
+}

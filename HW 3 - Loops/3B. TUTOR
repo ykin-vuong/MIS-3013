@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tutor
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 3b. tutor
+
+            Random rand = new Random();
+            int num1 = rand.Next(0, 51); // sets variables
+            int num2 = rand.Next(0, 51);
+            int correctAnswer = num1 + num2;
+            int userAnswer;
+
+            do // do while loop
+            {
+                Console.WriteLine($"{num1} + {num2} =?"); // outputs the two random numbers between 1 and 50
+                userAnswer = Convert.ToInt32(Console.ReadLine()); // user input
+
+                if (userAnswer == correctAnswer) // if the user answer is equal to the correct answer, output "correct"
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else 
+                {
+                    Console.WriteLine("Incorrect. Please try again."); // else output incorrect
+                }
+
+            } while (userAnswer != correctAnswer); // loops untilt the user inputs correct answer
+
+            Console.WriteLine("\nPress any key to continue . . . ");
+
+            Console.ReadKey();
+        }
+    }
+}
