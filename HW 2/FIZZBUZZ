@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _2b.FizzBuzz
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.WriteLine("Please enter your lucky number:");
+            string userInput = Console.ReadLine();
+
+            if (Int32.TryParse(userInput, out int luckyNumber))
+            {
+                if (luckyNumber % 3 == 0 && luckyNumber % 5 == 0)
+                {
+                    Console.WriteLine($"{luckyNumber} FizzBuzz");
+                }
+                else if (luckyNumber % 3 == 0)
+                {
+                    Console.WriteLine($"{luckyNumber} Fizz");
+                }
+                else if (luckyNumber % 5 == 0)
+                {
+
+                    Console.WriteLine($"{luckyNumber} Buzz");
+                }
+                else
+                { 
+                    Console.WriteLine(luckyNumber);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Sorry, but you are unable to run the FizzBuzz process due to the input not being a valid number.");
+            }
+            Console.ReadKey();
+        }
+    }
+}

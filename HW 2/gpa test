@@ -1,0 +1,235 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HW2.CONDITIONALSTATEMENTS
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //2a. gpa test
+            double accountingGrade; // creates the variables for the following grades, firstname lastname, and studentid
+            double marketingGrade;
+            double economicsGrade;
+            double MISGrade;
+
+            string firstname;
+            string lastname;
+            double studentID;
+
+            double totalPointsEarned; // creates the variables for the total points earned and total credits attempted
+            double totalCreditsAttempted;
+            double gpa;
+
+
+            Console.WriteLine("Enter your first name: "); // asks the user to input their first name, last name, and student id
+            firstname = Console.ReadLine();
+            Console.WriteLine("Enter your last name: ");
+            lastname = Console.ReadLine();
+            Console.WriteLine("Enter your student ID: ");
+            studentID = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Enter your accounting grade: "); // asks the user to input their grades for accounting, marketing, economics, and MIS
+            accountingGrade = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter your marketing grade: ");
+            marketingGrade = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter your economics grade: ");
+            economicsGrade = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Enter your MIS grade: ");
+            MISGrade = Convert.ToDouble(Console.ReadLine());
+
+            if (accountingGrade >= 90) // if statements to determine the grade points for each class and then outputs their respective GRADE POINTs earned for each class
+            {
+                accountingGrade = 4.0;
+            }
+            else if (accountingGrade >= 80)
+            {
+                accountingGrade = 3.0;
+            }
+            else if (accountingGrade >= 70)
+            {
+                accountingGrade = 2.0;
+            }
+            else if (accountingGrade >= 60)
+            {
+                accountingGrade = 1.0;
+            }
+            else
+            {
+                accountingGrade = 0.0;
+            }
+
+            if (marketingGrade >= 90)
+            {
+                marketingGrade = 4.0;
+            }
+            else if (marketingGrade >= 80)
+            {
+                marketingGrade = 3.0;
+            }
+            else if (marketingGrade >= 70)
+            {
+                marketingGrade = 2.0;
+            }
+            else if (marketingGrade >= 60)
+            {
+                marketingGrade = 1.0;
+            }
+            else
+            {
+                marketingGrade = 0.0;
+            }
+
+            if (economicsGrade >= 90)
+            {
+                economicsGrade = 4.0;
+            }
+            else if (economicsGrade >= 80)
+            {
+                economicsGrade = 3.0;
+            }
+            else if (economicsGrade >= 70)
+            {
+                economicsGrade = 2.0;
+            }
+            else if (economicsGrade >= 60)
+            {
+                economicsGrade = 1.0;
+            }
+            else
+            {
+                economicsGrade = 0.0;
+            }
+
+            if (MISGrade >= 90)
+            {
+                MISGrade = 4.0;
+            }
+            else if (MISGrade >= 80)
+            {
+                MISGrade = 3.0;
+            }
+            else if (MISGrade >= 70)
+            {
+                MISGrade = 2.0;
+            }
+            else if (MISGrade >= 60)
+            {
+                MISGrade = 1.0;
+            }
+            else
+            {
+                MISGrade = 0.0;
+            }
+
+
+
+            totalPointsEarned = (accountingGrade * 3) + (marketingGrade * 3) + (economicsGrade * 3) + (MISGrade * 3); // calculates the total points earned and multiplies by 3 since it is implied that each course is 3 credit hours
+            totalCreditsAttempted = 12; // total credits attempted is 12 since each course is 3 credit hours
+
+            gpa = totalPointsEarned / totalCreditsAttempted; // calculates the GPA by dividing the total points earned by the total credits attempted - given in the prompt
+
+            string accountingLetterGrade;
+            string marketingLetterGrade;
+            string economicsLetterGrade;
+            string MISLetterGrade;
+
+            {
+                if (accountingGrade == 4.0)
+                {
+                    accountingLetterGrade = "A";
+                }
+                else if (accountingGrade == 3.0)
+                {
+                    accountingLetterGrade = "B";
+                }
+                else if (accountingGrade == 2.0)
+                {
+                    accountingLetterGrade = "C";
+                }
+                else if (accountingGrade == 1.0)
+                {
+                    accountingLetterGrade = "D";
+                }
+                else
+                {
+                    accountingLetterGrade = "F";
+                }
+            }
+            if (marketingGrade == 4.0)
+            {
+                marketingLetterGrade = "A";
+            }
+            else if (marketingGrade == 3.0)
+            {
+                marketingLetterGrade = "B";
+            }
+            else if (marketingGrade == 2.0)
+            {
+                marketingLetterGrade = "C";
+            }
+            else if (marketingGrade == 1.0)
+            {
+                marketingLetterGrade = "D";
+            }
+            else
+            {
+                marketingLetterGrade = "F";
+            }
+            if (economicsGrade == 4.0)
+            {
+                economicsLetterGrade = "A";
+            }
+            else if (economicsGrade == 3.0)
+            {
+                economicsLetterGrade = "B";
+            }
+            else if (economicsGrade == 2.0)
+            {
+                economicsLetterGrade = "C";
+            }
+            else if (economicsGrade == 1.0)
+            {
+                economicsLetterGrade = "D";
+            }
+            else
+            {
+                economicsLetterGrade = "F";
+            }
+            if (MISGrade == 4.0)
+            {
+                MISLetterGrade = "A";
+            }
+            else if (MISGrade == 3.0)
+            {
+                MISLetterGrade = "B";
+            }
+            else if (MISGrade == 2.0)
+            {
+                MISLetterGrade = "C";
+            }
+            else if (MISGrade == 1.0)
+            {
+                MISLetterGrade = "D";
+            }
+            else
+            {
+                MISLetterGrade = "F";
+            }
+
+            Console.WriteLine("\n Your grade for accounting is: " + accountingLetterGrade); // outputs the letter grade for each class
+            Console.WriteLine(" Your grade for marketing is: " + marketingLetterGrade);
+            Console.WriteLine(" Your grade for economics is: " + economicsLetterGrade);
+            Console.WriteLine(" Your grade for MIS is: " + MISLetterGrade);
+            Console.WriteLine("");
+            Console.WriteLine($"Student Name: " + firstname + " " + lastname + " (" +studentID+ "), your GPA is " + gpa.ToString("N2")); // outputs the student's name, student id, and GPA
+
+            Console.ReadKey();
+
+        }
+    }
+}

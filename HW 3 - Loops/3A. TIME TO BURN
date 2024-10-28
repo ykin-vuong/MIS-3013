@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace timetoburn1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            const double caloriesPerMinute = 3.9; // sets variables
+            double goalCalories;
+            double caloriesburned = 0;
+            int minute = 0;
+
+            Console.WriteLine("How many calories do you want to burn?"); // asks user to input the goal calories
+            goalCalories = Convert.ToDouble(Console.ReadLine()); // converts the user input to a double
+
+            caloriesburned += caloriesPerMinute;
+            minute++;
+
+            while (goalCalories > caloriesburned) // while loop to keep running until the goal calories is greater than or equal to the calories burned
+            {
+                Console.WriteLine($"\nYou have burned {caloriesburned} calories in {minute} minutes");
+
+                caloriesburned += caloriesPerMinute; // increases calories burned by the set constant multiplier of 3.9
+                ++minute; // increase minute by 1
+            }
+
+            // displays the final text but i included "-caloriesPerMinute" and "- 1"to show the true timing on the last minute as the code will print one additional sequence.
+            Console.WriteLine($"\nCongratulations! You have burned {caloriesburned - caloriesPerMinute} calories in {minute - 1} minutes"); 
+
+            Console.ReadKey();
+        }
+    }
+}

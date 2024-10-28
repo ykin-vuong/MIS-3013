@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _4b.l337_Converter
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // 4b. l337 Converter
+
+            string userInput;
+            Console.WriteLine("Please enter a sentence:");
+            userInput = Console.ReadLine();
+            userInput = userInput.ToUpper();
+
+            for (int i = 0; i < userInput.Length; i++)
+            {
+                if (userInput[i] == 'A')
+                {
+                    userInput = userInput.Replace('A', '@');
+                }
+                else if (userInput[i] == 'E')
+                {
+                    userInput = userInput.Replace('E', '3');
+                }
+                else if (userInput[i] == 'H')
+                {
+                    userInput = userInput.Replace('H', '-');
+                }
+                else if (userInput[i] == 'S')
+                {
+                    userInput = userInput.Replace('S', '$');
+                }
+                else if (userInput[i] == 'T')
+                {
+                    userInput = userInput.Replace('T', '7');
+                }
+                else if (userInput[i] == 'U')
+                {
+                    userInput = userInput.Replace("U", "|_|");
+                }
+            }
+
+            if (userInput.Substring(userInput.Length - 1, 1) != "!")
+            {
+                Console.Write(userInput + "!");
+            }
+            else
+            {
+                Console.WriteLine(userInput);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}

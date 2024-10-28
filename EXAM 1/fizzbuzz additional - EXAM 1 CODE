@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace mycode
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            int count = 0;
+            int userNumber;
+
+            
+            Console.WriteLine("Please enter a positive integer: ");
+            userNumber = int.Parse(Console.ReadLine());
+
+            if (userNumber > 0)
+            {
+                sum += userNumber;
+                count++;
+
+            }
+            else
+            {
+                Console.WriteLine("Your number cannot be less than or equal zero. Please input again:");
+
+            }
+
+            while (count < 5 && userNumber > 0)
+            {
+                Console.WriteLine("Do you want to enter another number? (yes/no:) ");
+                string response = Console.ReadLine();
+                if (response == "yes")
+                {
+                    Console.WriteLine("Please enter a positive integer: ");
+                    userNumber = int.Parse(Console.ReadLine());
+
+                    sum += userNumber;
+                    count++;
+                }
+                else if (response == "no")
+                {
+                    Console.WriteLine($"You have entered {count} numbers.");
+                    break;
+                }
+                if (count == 5)
+                {
+                    Console.WriteLine($"You have entered {count} numbers.");
+                    break;
+                }
+            }
+            Console.WriteLine("");
+                if (sum % 3 == 0 && sum % 5 == 0)
+                {
+                    Console.WriteLine("FizzBuzz " + sum);
+                }
+                else if (sum % 3 == 0)
+                {
+                    Console.WriteLine("Fizz " + sum);
+                }
+                else if (sum % 5 == 0)
+                {
+                    Console.WriteLine("Buzz " + sum);
+                }
+                else
+                {
+                    Console.WriteLine("neither " + sum);
+                }
+
+            
+
+            Console.ReadKey();
+        }
+    }
+}

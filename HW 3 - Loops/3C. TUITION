@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TuitionIncrease
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double tuitionPerSem = 12000;
+            const double tuitionIncrease = 0.05;
+
+            Console.WriteLine($"Your current tuition at year 0 is {tuitionPerSem}"); // 12000 (year 0)
+
+            for (int year =1; year <= 7; year ++) // for loop for year 1 to 7 stating when year = 1 and is less than or equal to 7, increment year by 1 each time.
+            {
+                tuitionPerSem += tuitionPerSem * tuitionIncrease; // sets question tuitionpersem + tuitionpersem * tuitionincrease
+                Console.WriteLine($"\nThe tuition after year {year} will be {tuitionPerSem}"); // outputs tution after year
+            }
+            Console.WriteLine(); // insert empty line for ease of reading
+            Console.WriteLine($"\n Your tuition after 7 years will be {tuitionPerSem}");
+            Console.WriteLine(); // insert empty line for ease of reading
+            Console.WriteLine("\nPress any key to continue . . . "); // "Press any key to continue . . .
+            Console.ReadKey();
+        }
+    }
+}
