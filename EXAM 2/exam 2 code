@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exam_2___Ykin_Vuong
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            int correctCount = 0;
+            int incorrectCount = 0;
+            List<string> incorrectAnswers = new List<string>();
+
+            Random random = new Random();
+
+            for (int i = 1; i <= 5; i++)
+            {
+                int rand1 = random.Next(1, 51);
+                int rand2 = random.Next(1, 51);
+                double sum = addition(rand1, rand2);
+
+                Console.WriteLine($"Q{i}: {rand1} + {rand2} = ?");
+                int userAnswer = Convert.ToInt32(Console.ReadLine());
+
+                string result = comparison(userAnswer, sum);
+                Console.WriteLine(result);
+
+                if (userAnswer == sum)
+                {
+                    correctCount++;
+                }
+                else
+                {
+                    incorrectCount++;
+                    incorrectAnswers.Add($"{rand1} + {rand2} = {addition(rand1,rand2)}");
+                }
+            }
+            Console.WriteLine($"\nCorrect answers: {correctCount} \nIncorrect answers: {incorrectCount}");
+
+            if (incorrectCount > 0)
+           
+            { 
+                Console.WriteLine("\nLet's review those incorrect answers >>>\n");
+                foreach (string incorrectAnswer in incorrectAnswers)
+                {
+                    Console.WriteLine(incorrectAnswer);
+                }
+            }
+
+
+            Console.ReadKey();
+
+        }
+
+        static double addition(double rand1, double rand2)
+        {
+            return rand1 + rand2;
+        }
+
+        static string comparison(double userAnswer, double sum)
+        {
+            if (userAnswer == sum)
+            {
+                return "Correct" +
+                    "\n__________________ \n";
+            }
+            else
+            {
+                return $"Incorrect . . . It should be {sum}" +
+                    $"\n_________________\n";
+            }
+        }
+
+    }
+}
